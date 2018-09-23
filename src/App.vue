@@ -6,6 +6,6 @@
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Arial,"Microsoft Yahei","Helvetica Neue",Helvetica,sans-serif;
 }
 </style>
