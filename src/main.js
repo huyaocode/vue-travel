@@ -4,8 +4,11 @@ import router from './router'
 import store from './store'
 import fastClick from 'fastclick'
 //添加全局CSS
-import './assets/styles/reset.css'
-import './assets/styles/border.css'
+import 'styles/reset.css'
+import 'styles/border.css'
+import 'styles/iconfont.css'
+
+
 //设置为 false 以阻止 vue 在启动时生成生产提示
 Vue.config.productionTip = false
 fastClick.attach(document.body)

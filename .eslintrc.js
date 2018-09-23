@@ -16,6 +16,9 @@ module.exports = {
     "ecmaVersion": 2016,
     "sourceType": "module"
   },
+  plugins: [
+    'vue'
+  ],
   "rules": {
     "indent": [
       "error",
