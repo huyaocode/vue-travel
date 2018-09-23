@@ -8,10 +8,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont.css'
-<<<<<<< HEAD
-=======
 import 'swiper/dist/css/swiper.css'
->>>>>>> origin/index-swiper
 
 //设置为 false 以阻止 vue 在启动时生成生产提示
 Vue.config.productionTip = false
