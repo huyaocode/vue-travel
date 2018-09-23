@@ -3,14 +3,20 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import fastClick from 'fastclick'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 //添加全局CSS
 import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont.css'
+<<<<<<< HEAD
+=======
+import 'swiper/dist/css/swiper.css'
+>>>>>>> origin/index-swiper
 
 //设置为 false 以阻止 vue 在启动时生成生产提示
 Vue.config.productionTip = false
 fastClick.attach(document.body)
+Vue.use(VueAwesomeSwiper)
 
 new Vue({
   router,
