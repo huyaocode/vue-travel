@@ -35,39 +35,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '0001',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1712/16/16dd785ae3e2447ba3.img.jpg_200x200_c0ef018f.jpg',
-          title: '药王谷',
-          star: 4.84,
-          commentNum: 1234,
-          pos: '北川新县城那边',
-          price: 68,
-          tag: '随买随用'
-        },{
-          id: '0234',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1505/33/332724a457637e60.water.jpg_200x200_efc3c5b0.jpg',
-          title: '绵阳温泉酒店',
-          star: 4.86,
-          commentNum: 258,
-          pos: '涪城区',
-          price: 89,
-          tag: '可顶今日'
-        },{
-          id: '1958',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/201403/05/4e76e1413b815dc2284ebc48d87609a8.jpg_200x200_1bcf5c0c.jpg',
-          title: '仙海风景区',
-          star: 4.99,
-          commentNum: 59,
-          pos: '游仙区',
-          price: 36.6,
-          tag: ''
-        }
-      ]
-    }
+  props: {
+    recommendList: Array
   },
   filters: {
     limitLen: function (value) {

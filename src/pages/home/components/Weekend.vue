@@ -5,7 +5,7 @@
     </div>
     <ul class="list">
       <li class="card" 
-        v-for="card in recommendList"
+        v-for="card in weekendList"
         :key="card.id"
       >
         <img :src="card.imgUrl" alt="">
@@ -22,28 +22,9 @@
 <script>
 export default {
   name: 'HomeWeekend',
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '0001',
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1505/63/0ffcb5c329a19c.jpg_r_640x214_93fd1e5a.jpg',
-          title: '慢游成都最美古镇',
-          desc: '撷取一份悠闲，寻觅散落在时光里的幸福'
-        },{
-          id: '0234',
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1505/ea/bc9696f1d02d55.jpg_r_640x214_5c4ca381.jpg',
-          title: '阿坝必游Top10',
-          desc: '田秀山美，最是蜀地'
-        },{
-          id: '1958',
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1505/44/5251f239d3456.jpg_r_640x214_88ab6a42.jpg',
-          title: '峨眉山',
-          desc: '坐竹排看大佛，还有这么多好玩的地方'
-        }
-      ]
-    }
-  }
+  props:{
+    weekendList: Array
+  },
 }
 </script>
 

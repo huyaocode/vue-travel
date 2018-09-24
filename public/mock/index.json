@@ -1,0 +1,124 @@
+{
+  "ret": true,
+  "data": {
+    "city": "成都",
+    "swiperList": [
+      {
+        "id": "001",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1806/e5/fc2bfc8bfcccd402.jpg_750x200_1218ab5f.jpg"
+      },
+      {
+        "id": "002",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1808/6a/f7b6d041f291b902.jpg_750x200_931e952a.jpg"
+      },
+      {
+        "id": "003",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1808/83/7d0a5cbb1c641002.jpg_750x200_4278e47d.jpg"
+      }
+    ],
+    "categoryList": [
+      {
+        "id": "0001",
+        "desc": "景点门票",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
+      },
+      {
+        "id": "0002",
+        "desc": "夏日玩水",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/6a/45f595250c73d102.png"
+      },
+      {
+        "id": "0003",
+        "desc": "绵阳必游",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png"
+      },
+      {
+        "id": "0004",
+        "desc": "漂流",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/75/eca3ce656c886502.png"
+      },
+      {
+        "id": "0005",
+        "desc": "温泉",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png"
+      },
+      {
+        "id": "0006",
+        "desc": "直通车",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1804/95/8d02011d149bdb02.png"
+      },
+      {
+        "id": "0007",
+        "desc": "公园",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/54/35899492b1302802.png"
+      },
+      {
+        "id": "0008",
+        "desc": "文化古迹",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png"
+      },
+      {
+        "id": "0009",
+        "desc": "生活休闲",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/48/cb72b99b71974c02.png"
+      },
+      {
+        "id": "0010",
+        "desc": "全部玩乐",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/80/416c6ab3368d1f02.png"
+      }
+    ],
+    "recommendList": [
+      {
+        "id": "0001",
+        "imgUrl": "http://img1.qunarzz.com/sight/p0/1712/16/16dd785ae3e2447ba3.img.jpg_200x200_c0ef018f.jpg",
+        "title": "药王谷",
+        "star": 4.84,
+        "commentNum": 1234,
+        "pos": "北川新县城那边",
+        "price": 68,
+        "tag": "随买随用"
+      },
+      {
+        "id": "0234",
+        "imgUrl": "http://img1.qunarzz.com/sight/p0/1505/33/332724a457637e60.water.jpg_200x200_efc3c5b0.jpg",
+        "title": "绵阳温泉酒店",
+        "star": 4.86,
+        "commentNum": 258,
+        "pos": "涪城区",
+        "price": 89,
+        "tag": "可顶今日"
+      },
+      {
+        "id": "1958",
+        "imgUrl": "http://img1.qunarzz.com/sight/p0/201403/05/4e76e1413b815dc2284ebc48d87609a8.jpg_200x200_1bcf5c0c.jpg",
+        "title": "仙海风景区",
+        "star": 4.99,
+        "commentNum": 59,
+        "pos": "游仙区",
+        "price": 36.6,
+        "tag": ""
+      }
+    ],
+    "weekendList": [
+      {
+        "id": "0001",
+        "imgUrl": "http://img1.qunarzz.com/sight/source/1505/63/0ffcb5c329a19c.jpg_r_640x214_93fd1e5a.jpg",
+        "title": "慢游成都最美古镇",
+        "desc": "撷取一份悠闲，寻觅散落在时光里的幸福"
+      },
+      {
+        "id": "0234",
+        "imgUrl": "http://img1.qunarzz.com/sight/source/1505/ea/bc9696f1d02d55.jpg_r_640x214_5c4ca381.jpg",
+        "title": "阿坝必游Top10",
+        "desc": "田秀山美，最是蜀地"
+      },
+      {
+        "id": "1958",
+        "imgUrl": "http://img1.qunarzz.com/sight/source/1505/44/5251f239d3456.jpg_r_640x214_88ab6a42.jpg",
+        "title": "峨眉山",
+        "desc": "坐竹排看大佛，还有这么多好玩的地方"
+      }
+    ]
+  }
+}

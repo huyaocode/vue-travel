@@ -8,7 +8,7 @@
       <span class="discribe">输入城市/景点/游玩主题</span>
     </div>
     <div class="header-right">
-      绵阳
+      {{city}}
       <span class="iconfont arrow-icon">&#xe698;</span>
     </div>
   </div>
@@ -16,7 +16,8 @@
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: ['city']
 }
 </script>
 
