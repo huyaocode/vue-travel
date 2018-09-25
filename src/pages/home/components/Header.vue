@@ -7,10 +7,12 @@
       <span class="iconfont">&#xe632;</span>
       <span class="discribe">输入城市/景点/游玩主题</span>
     </div>
-    <div class="header-right">
-      {{city}}
-      <span class="iconfont arrow-icon">&#xe698;</span>
-    </div>
+    <router-link to="/city">
+      <div class="header-right">
+        {{city}}
+        <span class="iconfont arrow-icon">&#xe698;</span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -23,25 +25,23 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
+@import '~styles/mixins.styl'
 .header
   display: flex
   background-color: $bgColor
-  height: 0.88rem
-  line-height: 0.88rem
+  height: $headerHeight
+  line-height: $headerHeight
   font-size: 0.28rem
   color: #fff
   .header-left
     float: left
-    width: 0.64rem
+    width: 0.84rem
     .back-icon
-      text-align: center
-      font-size: 0.35rem
-      font-weight: 600
+      returnButton()
   .header-input
     flex: 1
     display: flex
     align-self: center
-    margin-left: 0.16rem
     cursor: pointer
     height: 0.6rem
     line-height: 0.6rem
@@ -50,8 +50,9 @@ export default {
     background: #fff
     color: #ddd
     .discribe
-      margin-left .1rem
+      margin-left: 0.1rem
   .header-right
+    color: #fff
     float: right
     width: 1.3rem
     font-size: 0.28rem
