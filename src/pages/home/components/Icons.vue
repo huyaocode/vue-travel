@@ -22,8 +22,7 @@ export default {
     return {
       swiperOption: {
         pagination: ".swiper-pagination"
-      },
-      
+      }
     }
   }, 
   computed: {
