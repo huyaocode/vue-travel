@@ -4,24 +4,10 @@
       <div class="area">
         <h2>热门城市</h2>
         <ul class="city-three">
-          <li>北京</li>
-          <li>北京</li>
-          <li>北京</li>
-
-          <li>北京</li>
-          <li>北京</li>
-          <li>北京</li>
-
-          <li>北京</li>
-          <li>北京</li>
-          <li>北京</li>
-
-          <li>北京</li>
-          <li>北京</li>
-          <li>北京</li>
+          <li v-for="item of hot" :key="item.id">{{item.name}}</li>
         </ul>
       </div>
-      <div class="area">
+      <!-- <div class="area">
         <h2>字母排序</h2>
         <ul class="alphabet">
           <li>A</li>
@@ -47,79 +33,15 @@
           <li>Y</li>
           <li>Z</li>
         </ul>
-      </div>
-      <div class="area">
-        <h2>A</h2>
+      </div> -->
+      <div class="area" 
+        v-for="(item, key) of cities" 
+        :key="key"
+        :ref="key"
+      >
+        <h2>{{key}}</h2>
         <ul class="city-four">
-          <li>阿坝藏族羌族自治州</li>
-          <li>安顺</li>
-          <li>安顺</li>
-
-          <li>安顺</li>
-          <li>安顺</li>
-          <li>安顺</li>
-
-          <li>安顺</li>
-          <li>安顺</li>
-          <li>安顺</li>
-
-          <li>安顺</li>
-          <li>安顺</li>
-        </ul>
-      </div>
-      <div class="area">
-        <h2>B</h2>
-        <ul class="city-four">
-          <li>北京</li>
-          <li>北京</li>
-          <li>北京</li>
-
-          <li>北京</li>
-          <li>北京</li>
-          <li>北京</li>
-
-          <li>北京</li>
-          <li>北京</li>
-          <li>北京</li>
-
-          <li>北京</li>
-        </ul>
-      </div>
-      <div class="area">
-        <h2>C</h2>
-        <ul class="city-four">
-          <li>阿坝藏族羌族自治州</li>
-          <li>安顺</li>
-          <li>安顺</li>
-
-          <li>安顺</li>
-          <li>安顺</li>
-          <li>安顺</li>
-
-          <li>安顺</li>
-          <li>安顺</li>
-          <li>安顺</li>
-
-          <li>安顺</li>
-          <li>安顺</li>
-        </ul>
-      </div>
-      <div class="area">
-        <h2>D</h2>
-        <ul class="city-four">
-          <li>北京</li>
-          <li>北京</li>
-          <li>北京</li>
-
-          <li>北京</li>
-          <li>北京</li>
-          <li>北京</li>
-
-          <li>北京</li>
-          <li>北京</li>
-          <li>北京</li>
-
-          <li>北京</li>
+          <li v-for="innerItem in item" :key="innerItem.id">{{innerItem.name}}</li>
         </ul>
       </div>
     </div>
@@ -130,17 +52,26 @@
 import BScroll from 'better-scroll'
 export default {
   name: 'CityList',
+  props: {
+    cities: Object,
+    hot: Array,
+    letter: String
+  },
   mounted () {
     this.scroll = new BScroll(this.$refs.wrapper)
+  },
+  watch: {
+    letter () {
+      const element = this.$refs[this.letter][0]
+      this.scroll.scrollToElement(element)
+    }
   }
 }
 </script>
 
-
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
 @import '~styles/mixins.styl'
-  
 blockItemborder()
   border-right: 1px solid #ddd
   margin-right: -1px
@@ -152,14 +83,13 @@ blockItem()
   font-size: 0.28rem
   text-align: center
   float: left
-
 .list
   position: absolute
   overflow: hidden
   top: $headerHeight
   left: 0
-  bottom 0
-  right 0
+  bottom: 0
+  right: 0
   .area
     font-size: 0.28rem
     h2

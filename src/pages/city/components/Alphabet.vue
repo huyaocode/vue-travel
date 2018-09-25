@@ -1,34 +1,79 @@
 <template>
-  <ul class="list">
-    <li>A</li>
-    <li>B</li>
-    <li>C</li>
-    <li>D</li>
-    <li>E</li>
-    <li>F</li>
-    <li>G</li>
-    <li>H</li>
-    <li>J</li>
-    <li>K</li>
-    <li>L</li>
-    <li>M</li>
-    <li>N</li>
-    <li>P</li>
-    <li>Q</li>
-    <li>R</li>
-    <li>S</li>
-    <li>T</li>
-    <li>W</li>
-    <li>X</li>
-    <li>Y</li>
-    <li>Z</li>
+  <ul class="list"
+    ref="top"
+  >
+    <li
+      v-for="item of letters"
+      :key="item"
+      :ref="item"
+      @click="handleLetterClick"
+      @touchstart="handleTouchStart"
+      @touchmove="handleTouchMove"
+      @touchend="handleTouchEnd"
+    >{{item}}</li>
   </ul>
 </template>
 
 <script>
 
 export default {
-  name: 'CityAlphabet'
+  name: 'CityAlphabet',
+  props:{
+    cities: Object
+  },
+  computed: {
+    letters () {
+      let letters = []
+      for(let i in this.cities) {
+        letters.push(i)
+      }
+      return letters
+    }
+  },
+  data () {
+    return {
+      touchStatus: false,
+      startY: 0,
+      letterHeight: 0,
+      throttleTimer: null
+    }
+  },
+  updated () {
+    this.startY = this.$refs.top.offsetTop
+    this.letterHeight = parseInt(this.getStyle(this.$refs['A'][0], 'height'))
+  },
+  methods:{
+    handleLetterClick (e) {
+      const letter = e.target.innerText
+      this.$emit('change', letter)
+    },
+    handleTouchStart () {
+      this.touchStatus = true
+    },
+    handleTouchMove (e) {
+      clearTimeout(this.throttleTimer)
+      let _this = this
+      this.throttleTimer = setTimeout(() => {
+        if(_this.touchStatus) {
+          const touchY = e.touches[0].clientY
+          const index = parseInt((touchY - _this.startY) / _this.letterHeight)
+          if(index < _this.letters.length && index >= 0){
+            _this.$emit('change', _this.letters[index])
+          }
+        }
+      }, 15)
+    },
+    handleTouchEnd () {
+      this.touchStatus = false
+    },
+    getStyle (ele, prop) {
+      if(window.getComputedStyle){
+        return window.getComputedStyle(ele, null)[prop]
+      } else {
+        return ele.currentStyle[prop]
+      }
+    }
+  }
 }
 </script>
 
