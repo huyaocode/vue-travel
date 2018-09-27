@@ -83,6 +83,7 @@ export default {
 @import '~styles/mixins.styl'
 
 .list
+  z-index 1
   display flex
   flex-direction column
   justify-content center

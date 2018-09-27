@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <div class="search">
       <input
         v-model="keyword"
@@ -7,23 +7,31 @@
         placeholder="请输入城市名或拼音"
       >
     </div>
-      <div 
-        class="search-content" 
-        v-show="keyword"
-      >
-        <ul ref="search">
-          <li v-for="item of list" :key="item.id" class="boder-bottom">{{item.name}}</li>
-          <li 
-            class="boder-bottom"
-            v-show="isNoData"
-          >这个城市不在地球上哟~</li>
-        </ul>
-      </div>
+    <div 
+      class="search-content" 
+      v-show="keyword"
+    >
+      <ul ref="search">
+        <li 
+          v-for="item of list" 
+          :key="item.id" 
+          class="boder-bottom"
+          @click="handleCityClick(item.name)"
+        >
+        {{item.name}}
+        </li>
+        <li 
+          class="boder-bottom"
+          v-show="isNoData"
+        >这个城市不在地球上哟~</li>
+      </ul>
     </div>
+  </div>
 </template>
 
 <script>
 import Bscorll from 'better-scroll'
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'CitySearch',
@@ -42,6 +50,13 @@ export default {
       return !this.list.length
     }
   },
+  methods: {
+    handleCityClick (city) {
+      this.changeCity(city)
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
+  },
   mounted () {
     this.scroll = new Bscorll(this.$refs.search)
   },
@@ -49,8 +64,10 @@ export default {
     keyword (key) {
       if (key == '') {
         this.list = []
+        this.$emit('showAlphabet', true)
         return
       }
+      this.$emit('showAlphabet', false)
       if (this.timer) {
         clearTimeout(this.timer)
       }
@@ -74,26 +91,26 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
-.search
-  text-align: center
-  z-index 500
-  background-color: $bgColor
-  input
-    width: 97%
-    margin: 0.1rem auto
-    height: 0.5rem
-    border-radius: 0.05rem
+.wrapper
+  .search
     text-align: center
-.search-content
-  position: absolute
-  top: 0.7rem
-  background: #f5f5f5
-  left: 0
-  right: 0
-  bottom: 0
-  ul 
-    li
-      line-height .62rem
-      padding: .1rem .2rem
-      background: #fff
+    background-color: $bgColor
+    input
+      width: 97%
+      margin: 0.1rem auto
+      height: 0.5rem
+      border-radius: 0.05rem
+      text-align: center
+  .search-content
+    position: absolute
+    top: 0.7rem
+    background: #f5f5f5
+    left: 0
+    right: 0
+    bottom: 0
+    ul 
+      li
+        line-height .62rem
+        padding: .1rem .2rem
+        background: #fff
 </style>

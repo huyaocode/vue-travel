@@ -1,15 +1,17 @@
 <template>
   <div class="city">
     <city-header></city-header>
-    <city-list 
-      :cities="cities"
-      :hot="hotCities"
-      :letter="letter"
-    ></city-list>
     <city-alphabet 
       :cities="cities"
       @change="handleLetterChange"
+      v-show="showAlphabet"
     ></city-alphabet>
+        <city-list 
+      :cities="cities"
+      :hot="hotCities"
+      :letter="letter"
+      @showAlphabet="handleShowAlphabet"
+    ></city-list>
   </div>
 </template>
 
@@ -30,7 +32,8 @@ export default {
     return {
       cities: {},
       hotCities: [],
-      letter: ''
+      letter: '',
+      showAlphabet: true
     }
   },
   methods: {
@@ -48,6 +51,9 @@ export default {
     },
     handleLetterChange (letter) {
       this.letter = letter
+    },
+    handleShowAlphabet (isShow) {
+      this.showAlphabet = isShow
     }
   },
   mounted () {

@@ -1,11 +1,17 @@
 <template>
   <div class="list" ref="wrapper">
     <div class="content">
-      <city-search :cities="cities"></city-search>
+      <city-search 
+        :cities="cities"
+        @showAlphabet="handleShowAlphabet"
+      ></city-search>
       <div class="area">
         <h2>热门城市</h2>
         <ul class="city-three">
-          <li v-for="item of hot" :key="item.id">{{item.name}}</li>
+          <li v-for="item of hot" 
+            :key="item.id" 
+            @click="handleCityClick(item.name)"
+          >{{item.name}}</li>
         </ul>
       </div>
       <div class="area" 
@@ -15,7 +21,11 @@
       >
         <h2>{{key}}</h2>
         <ul class="city-four">
-          <li v-for="innerItem in item" :key="innerItem.id">{{innerItem.name}}</li>
+          <li 
+            v-for="innerItem in item" 
+            :key="innerItem.id" 
+            @click="handleCityClick(innerItem.name)"
+          >{{innerItem.name}}</li>
         </ul>
       </div>
     </div>
@@ -23,6 +33,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import BScroll from 'better-scroll'
 import CitySearch from './Search'
 
@@ -35,6 +46,16 @@ export default {
     cities: Object,
     hot: Array,
     letter: String
+  },
+  methods:{
+    handleCityClick (city) {
+      this.changeCity(city)
+      this.$router.push('/')
+    },
+    handleShowAlphabet(isShow) {
+      this.$emit('showAlphabet', isShow)
+    },
+    ...mapMutations(['changeCity'])
   },
   mounted () {
     this.scroll = new BScroll(this.$refs.wrapper)
