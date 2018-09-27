@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="city">
     <city-header></city-header>
     <city-list 
       :cities="cities"
@@ -15,7 +15,6 @@
 
 <script>
 import axios from 'axios'
-
 import CityHeader from './components/Header'
 import CityList from './components/List'
 import CityAlphabet from './components/Alphabet'
@@ -56,4 +55,5 @@ export default {
   }
 }
 </script>
+
 

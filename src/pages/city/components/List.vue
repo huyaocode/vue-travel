@@ -1,39 +1,13 @@
 <template>
   <div class="list" ref="wrapper">
     <div class="content">
+      <city-search :cities="cities"></city-search>
       <div class="area">
         <h2>热门城市</h2>
         <ul class="city-three">
           <li v-for="item of hot" :key="item.id">{{item.name}}</li>
         </ul>
       </div>
-      <!-- <div class="area">
-        <h2>字母排序</h2>
-        <ul class="alphabet">
-          <li>A</li>
-          <li>B</li>
-          <li>C</li>
-          <li>D</li>
-          <li>E</li>
-          <li>F</li>
-          <li>G</li>
-          <li>H</li>
-          <li>J</li>
-          <li>K</li>
-          <li>L</li>
-          <li>M</li>
-          <li>N</li>
-          <li>P</li>
-          <li>Q</li>
-          <li>R</li>
-          <li>S</li>
-          <li>T</li>
-          <li>W</li>
-          <li>X</li>
-          <li>Y</li>
-          <li>Z</li>
-        </ul>
-      </div> -->
       <div class="area" 
         v-for="(item, key) of cities" 
         :key="key"
@@ -50,8 +24,13 @@
 
 <script>
 import BScroll from 'better-scroll'
+import CitySearch from './Search'
+
 export default {
   name: 'CityList',
+  components:{
+    CitySearch
+  },
   props: {
     cities: Object,
     hot: Array,
@@ -83,6 +62,7 @@ blockItem()
   font-size: 0.28rem
   text-align: center
   float: left
+
 .list
   position: absolute
   overflow: hidden
